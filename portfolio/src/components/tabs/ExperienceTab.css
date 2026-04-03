@@ -1,0 +1,308 @@
+/* components/tabs/ExperienceTab.css */
+
+.exp-tab {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+}
+
+.exp-orb-1 {
+  position: fixed;
+  width: 500px; height: 500px;
+  top: 50%; left: -150px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  filter: blur(120px);
+  background: radial-gradient(circle, rgba(99, 179, 237, 0.07), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.exp-orb-2 {
+  position: fixed;
+  width: 400px; height: 400px;
+  bottom: -100px; right: 100px;
+  border-radius: 50%;
+  filter: blur(100px);
+  background: radial-gradient(circle, rgba(183, 148, 244, 0.07), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.exp-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 48px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Timeline */
+.exp-timeline {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 0 32px;
+}
+
+.exp-timeline-line {
+  position: absolute;
+  top: 20px;
+  left: 48px;
+  right: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple), var(--neon-cyan));
+  opacity: 0.25;
+}
+
+.exp-timeline-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  border: none;
+  cursor: none;
+  position: relative;
+  z-index: 1;
+}
+
+.exp-node-dot {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--border-glass);
+  background: var(--bg-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-smooth);
+  position: relative;
+}
+
+.exp-timeline-node:hover .exp-node-dot {
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 12px rgba(99, 179, 237, 0.3);
+}
+
+.exp-timeline-node.active .exp-node-dot {
+  border-color: var(--neon-blue);
+  background: rgba(99, 179, 237, 0.1);
+  box-shadow: 0 0 20px rgba(99, 179, 237, 0.4);
+}
+
+.exp-timeline-node.passed .exp-node-dot {
+  border-color: var(--neon-green);
+  background: rgba(104, 211, 145, 0.08);
+}
+
+.exp-node-pulse {
+  position: absolute;
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  border: 2px solid var(--neon-blue);
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+.exp-node-check {
+  font-size: 0.75rem;
+  color: var(--neon-green);
+}
+
+.exp-node-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.exp-node-month {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  transition: color var(--transition-fast);
+}
+
+.exp-timeline-node.active .exp-node-month {
+  color: var(--neon-blue);
+}
+
+.exp-timeline-node.passed .exp-node-month {
+  color: var(--neon-green);
+}
+
+.exp-node-year {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+/* Panel */
+.exp-panel {
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-height: 280px;
+  animation: scale-in 0.4s ease both;
+}
+
+.exp-panel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.exp-panel-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.exp-panel-num {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+}
+
+.exp-panel-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.exp-panel-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+}
+
+.exp-panel-company {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+}
+
+.exp-panel-sep {
+  color: var(--text-muted);
+}
+
+.exp-panel-period {
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.exp-panel-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: flex-start;
+  max-width: 260px;
+  justify-content: flex-end;
+}
+
+.exp-skill-tag {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border: 1px solid rgba(118, 228, 247, 0.25);
+  border-radius: 100px;
+  color: var(--neon-cyan);
+  background: rgba(118, 228, 247, 0.05);
+}
+
+.exp-panel-divider {
+  height: 1px;
+  background: var(--border-glass);
+}
+
+.exp-tasks-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.exp-tasks-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.exp-task-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  animation: fade-up 0.4s ease both;
+  font-weight: 300;
+}
+
+.exp-task-arrow {
+  color: var(--neon-blue);
+  font-size: 0.65rem;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+/* Nav */
+.exp-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.exp-nav-btn {
+  min-width: 100px;
+}
+
+.exp-nav-btn:disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.exp-nav-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.exp-nav-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--border-glass);
+  border: none;
+  cursor: none;
+  transition: all var(--transition-fast);
+}
+
+.exp-nav-dot.active {
+  background: var(--neon-blue);
+  width: 20px;
+  border-radius: 3px;
+  box-shadow: 0 0 8px var(--neon-blue);
+}

@@ -1,0 +1,257 @@
+/* components/tabs/ContactTab.css */
+
+.contact-tab {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+}
+
+.contact-orb-1 {
+  position: fixed;
+  width: 500px; height: 500px;
+  top: -100px; right: -100px;
+  border-radius: 50%;
+  filter: blur(120px);
+  background: radial-gradient(circle, rgba(246, 135, 179, 0.07), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact-orb-2 {
+  position: fixed;
+  width: 400px; height: 400px;
+  bottom: 0; left: -100px;
+  border-radius: 50%;
+  filter: blur(100px);
+  background: radial-gradient(circle, rgba(99, 179, 237, 0.07), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 48px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* Left */
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-intro {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: var(--text-secondary);
+  font-weight: 300;
+}
+
+.contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.contact-item-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.contact-item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.contact-item-label {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.contact-item-value {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.contact-item:hover .contact-item-value {
+  color: var(--neon-blue);
+}
+
+.contact-item-arrow {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.contact-item:hover .contact-item-arrow {
+  transform: translateX(4px);
+  color: var(--neon-blue);
+}
+
+/* Right — Form */
+.contact-right {
+  position: sticky;
+  top: 0;
+}
+
+.contact-form-card {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact-form-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.contact-form-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.contact-form-dots span {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--border-glass);
+}
+
+.contact-form-dots span:nth-child(1) { background: rgba(255, 95, 86, 0.5); }
+.contact-form-dots span:nth-child(2) { background: rgba(255, 189, 46, 0.5); }
+.contact-form-dots span:nth-child(3) { background: rgba(39, 201, 63, 0.5); }
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-field-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
+}
+
+.contact-field.focused .contact-field-label {
+  color: var(--neon-blue);
+}
+
+.contact-input,
+.contact-textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+  resize: none;
+  cursor: none;
+}
+
+.contact-input::placeholder,
+.contact-textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.contact-input:focus,
+.contact-textarea:focus {
+  border-color: var(--neon-blue);
+  background: rgba(99, 179, 237, 0.03);
+  box-shadow: 0 0 0 3px rgba(99, 179, 237, 0.08);
+}
+
+.contact-submit {
+  width: 100%;
+  margin-top: 4px;
+  padding: 14px;
+}
+
+/* Success */
+.contact-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 40px;
+  text-align: center;
+  animation: scale-in 0.4s ease;
+}
+
+.contact-success-icon {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: rgba(104, 211, 145, 0.1);
+  border: 2px solid var(--neon-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: var(--neon-green);
+  box-shadow: 0 0 20px rgba(104, 211, 145, 0.3);
+}
+
+.contact-success h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--neon-green);
+}
+
+.contact-success p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}

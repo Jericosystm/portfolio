@@ -1,0 +1,253 @@
+/* components/tabs/ProjectsTab.css */
+
+.projects-tab {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+}
+
+.projects-orb {
+  position: fixed;
+  width: 600px; height: 600px;
+  top: 50%; right: -100px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+  transition: background 0.6s ease;
+}
+
+.projects-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 48px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.projects-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* Sidebar */
+.projects-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.projects-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-sm);
+  background: var(--bg-glass);
+  color: var(--text-secondary);
+  cursor: none;
+  text-align: left;
+  transition: all var(--transition-fast);
+  width: 100%;
+}
+
+.projects-nav-item:hover {
+  background: var(--bg-glass-hover);
+  color: var(--text-primary);
+}
+
+.projects-nav-item.active {
+  background: rgba(99, 179, 237, 0.05);
+}
+
+.projects-nav-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.projects-nav-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.projects-nav-title {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.projects-nav-tech {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.projects-nav-num {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+/* Main card */
+.projects-main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.projects-card {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.projects-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.projects-card-icon {
+  width: 64px; height: 64px;
+  border-radius: var(--radius-sm);
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.projects-card-meta {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.projects-card-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.projects-card-num {
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  font-weight: 700;
+  opacity: 0.4;
+}
+
+/* Preview */
+.projects-preview {
+  height: 180px;
+  border-radius: var(--radius-sm);
+  border: 1px solid;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-preview-dots {
+  padding: 10px 14px;
+  display: flex;
+  gap: 6px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.projects-preview-dots span {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+}
+
+.projects-preview-screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.projects-preview-icon {
+  font-size: 2.5rem;
+  opacity: 0.6;
+}
+
+.projects-preview-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.projects-card-desc {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  font-weight: 300;
+}
+
+.projects-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.projects-tech-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  padding: 4px 12px;
+  border: 1px solid;
+  border-radius: 100px;
+  background: rgba(99, 179, 237, 0.04);
+}
+
+.projects-actions {
+  display: flex;
+  gap: 12px;
+  padding-top: 4px;
+}
+
+.projects-actions a {
+  text-decoration: none;
+}
+
+/* Dots */
+.projects-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.projects-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--border-glass);
+  border: none;
+  cursor: none;
+  transition: all var(--transition-fast);
+}
+
+.projects-dot.active {
+  width: 20px;
+  border-radius: 3px;
+}

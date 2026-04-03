@@ -1,0 +1,117 @@
+/* components/NavBar.css */
+
+.navbar {
+  position: relative;
+  z-index: 100;
+  padding: 0 32px;
+  height: 64px;
+  background: rgba(5, 5, 8, 0.7);
+  border-bottom: 1px solid var(--border-glass);
+  backdrop-filter: blur(20px);
+  flex-shrink: 0;
+  animation: fade-up 0.6s ease both;
+}
+
+.navbar-inner {
+  height: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.navbar-logo {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.navbar-logo-bracket {
+  color: var(--neon-blue);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  text-shadow: 0 0 10px var(--neon-blue);
+}
+
+.navbar-tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  justify-content: center;
+}
+
+.navbar-tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast), background var(--transition-fast);
+  cursor: none;
+}
+
+.navbar-tab:hover {
+  color: var(--text-primary);
+  background: var(--bg-glass);
+}
+
+.navbar-tab.active {
+  color: var(--neon-blue);
+  background: rgba(99, 179, 237, 0.06);
+}
+
+.navbar-tab-icon {
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.navbar-tab-indicator {
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
+  border-radius: 2px;
+  box-shadow: 0 0 8px var(--neon-blue);
+}
+
+.navbar-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--neon-green);
+  box-shadow: 0 0 8px var(--neon-green);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.status-text {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
